@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 RUN npx prisma generate
-RUN npx prisma migrate dev --name update database
+# RUN npx prisma migrate dev --name update database
 # Exponha a porta em que o servidor Node.js está ouvindo (geralmente a porta 3000)
 EXPOSE 3000
 
