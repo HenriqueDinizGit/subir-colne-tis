@@ -11,15 +11,14 @@ COPY package-lock.json .
 # Instale as dependências do Node.js
 RUN npm install
 
-# ENV DATABASE_URL="mysql://root:hsd161203@localhost/muscleuup?schema=public"
-
 # Copie o restante dos arquivos do seu projeto para o diretório de trabalho
 COPY . .
 
+# Gere o cliente Prisma
 RUN npx prisma generate
-# RUN npx prisma migrate dev --name update database
-# Exponha a porta em que o servidor Node.js está ouvindo (geralmente a porta 3000)
+
+# Exponha a porta em que o servidor Node.js está ouvindo
 EXPOSE 3000
 
 # Comando para iniciar o servidor Node.js
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npx prisma migrate deploy && npm start"]
