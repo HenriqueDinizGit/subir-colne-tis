@@ -6,7 +6,7 @@ import cors from 'cors';
 
 const shareTreinoRouter: Router = Router();
 
-shareTreinoRouter.use(cors({ origin: "http://localhost:5173" }));
+shareTreinoRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 shareTreinoRouter.post("/compartilhar/:treinoId", authMiddleware, errorHandler(shareTreino));
 shareTreinoRouter.get("/aceitar-compartilhamento/:token", errorHandler(redirectSharedTreino));

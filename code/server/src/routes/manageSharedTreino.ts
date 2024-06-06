@@ -6,7 +6,7 @@ import { deleteSharedTreino, deleteUsuarioFromSharedTreino, getSharedTreinos, ge
 
 const manageSharedTreinoRouter: Router = Router();
 
-manageSharedTreinoRouter.use(cors({ origin: "http://localhost:5173" }));
+manageSharedTreinoRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 manageSharedTreinoRouter.get("/", authMiddleware, errorHandler(getSharedTreinos));
 manageSharedTreinoRouter.delete("/:id", authMiddleware, errorHandler(deleteSharedTreino));

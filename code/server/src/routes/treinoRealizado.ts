@@ -7,7 +7,7 @@ import { createTreinoRealizado, deleteTreinoRealizado, getTreinoRealizado, getTr
 
 const treinoRealizadoRouter:Router = Router();
 
-treinoRealizadoRouter.use(cors({ origin: "http://localhost:5173" }));
+treinoRealizadoRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 
 treinoRealizadoRouter.post("/:treinoId", authMiddleware, errorHandler(createTreinoRealizado))

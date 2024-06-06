@@ -7,7 +7,7 @@ import { getDiasNaAcademiaPorMes, getMaiorSequenciaDeTreinosDashboard, getSequen
 
 const dashboardRouter:Router = Router();
 
-dashboardRouter.use(cors({ origin: "http://localhost:5173" }));
+dashboardRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 
 dashboardRouter.get("/treinos-finalizados", authMiddleware, errorHandler(getTreinosFinalizadosDashboard))

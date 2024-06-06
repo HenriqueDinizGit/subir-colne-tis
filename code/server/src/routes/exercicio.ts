@@ -7,7 +7,7 @@ import cors from "cors"; // Importe o pacote cors
 
 const exercicioRouter:Router = Router();
 
-exercicioRouter.use(cors({ origin: "http://localhost:5173" }));
+exercicioRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 
 exercicioRouter.post("/", authMiddleware, errorHandler(createExercicio))

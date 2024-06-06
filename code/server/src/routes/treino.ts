@@ -6,7 +6,7 @@ import cors from "cors";
 
 const treinoRouter:Router = Router();
 
-treinoRouter.use(cors({ origin: "http://localhost:5173" }));
+treinoRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 
 treinoRouter.post("/", authMiddleware, errorHandler(createTreino))

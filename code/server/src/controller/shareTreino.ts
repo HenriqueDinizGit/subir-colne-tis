@@ -55,7 +55,7 @@ export const redirectSharedTreino = async (req: any, res: Response) => {
     throw new BadRequestException('Token inválido', ErrorCode.INVALID_TOKEN);
   }
 
-  res.redirect(`http://localhost:5173/shared-treino/${token}`);
+  res.redirect(`https://subir-colne-tis-frontend.onrender.com/shared-treino/${token}`);
 };
 
 export const acceptSharedTreino = async (req: any, res: Response): Promise<void> => {

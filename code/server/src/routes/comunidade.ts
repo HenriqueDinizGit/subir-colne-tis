@@ -8,7 +8,7 @@ import { acceptInviteComunnity, calcularPontosMembrosComunidade, createComunidad
 
 const comunidadeRouter:Router = Router();
 
-comunidadeRouter.use(cors({ origin: "http://localhost:5173" }));
+comunidadeRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 
 comunidadeRouter.post("/", authMiddleware, errorHandler(createComunidade))

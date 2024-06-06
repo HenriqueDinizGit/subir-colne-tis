@@ -1,7 +1,7 @@
 import axios from 'axios';  
 
 export const base = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://subir-colne-tis-backend.onrender.com',
 });
 
 export default base;

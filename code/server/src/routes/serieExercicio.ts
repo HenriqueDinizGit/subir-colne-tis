@@ -7,7 +7,7 @@ import cors from "cors"; // Importe o pacote cors
 
 const serieExercicioRouter:Router = Router();
 
-serieExercicioRouter.use(cors({ origin: "http://localhost:5173" }));
+serieExercicioRouter.use(cors({ origin: "https://subir-colne-tis-frontend.onrender.com" }));
 
 
 serieExercicioRouter.post("/", authMiddleware, errorHandler(createSerieExercicio))

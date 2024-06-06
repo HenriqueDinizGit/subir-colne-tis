@@ -19,7 +19,7 @@ export { httpServer }
 app.use(express.json())
 
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: 'https://subir-colne-tis-frontend.onrender.com'
     //origin: ['http://localhost:3000', 'https://plf-es-2024-1-ti5-5104100-muscleuup-e5ew.onrender.com']
 })); 
 
