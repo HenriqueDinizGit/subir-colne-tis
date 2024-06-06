@@ -1,0 +1,444 @@
+.content{
+    width:60vw;
+    height: 100%;
+}
+
+.content-header{
+    display: flex;
+   
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-title{
+    color:#212529;
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+/*card-container*/
+
+.card-container{
+    display: flex;
+    gap: 16px;
+    padding: 16px 0px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.horizontal-card-scroll{
+    overflow-x: auto; /* Permitir rolagem horizontal */
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 0%;
+    padding-left: 0%;
+    scrollbar-width: thin; /* Largura da scrollbar (pode ser 'thin', 'auto' ou 'none') */
+    scrollbar-color: #d1d1d1 transparent;
+}
+
+.horizontal-card-scroll > *:not(:last-child) {
+    margin-right: 20px; 
+}
+
+.card{
+    /*flex: 1;*/
+    appearance: none;
+    text-decoration: none;
+    position: relative;
+    background: #e8e8e8;
+    padding: 16px;
+    border-radius: 16px;
+    height: 208px;
+    transition: all 0.2s ease-in-out;
+    width: 208px;
+    display: flex;
+    flex: 0 0 208px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    scroll-snap-align: start;
+    margin-bottom:10px ;
+    cursor: pointer;
+}
+
+
+.card.focused {
+    border: 2px solid #212529;
+}
+
+.img-treino {
+    transition: filter 0.3s ease;
+}
+
+.img-treino.grayscale {
+    filter: grayscale(100%);
+}
+
+.exercises-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-height: 340px;
+    overflow: auto;
+    scrollbar-width: thin; /* Largura da scrollbar (pode ser 'thin', 'auto' ou 'none') */
+    scrollbar-color: #d1d1d1 transparent;
+}
+
+.exercise {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+    border-radius: 5px;
+    margin-bottom: 5px; /* Espaçamento entre os exercícios */
+    text-align: center;
+}
+
+.card:hover{
+    transform: scale(1.03);
+}
+
+/*.card-cover{
+    background: #212529;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    padding:5px;
+    border-radius: 5px;
+    color: #F8F9FA;
+}
+
+.card-title{
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #207fdd;
+    border-radius:10px;
+    margin-top: 12px;
+}*/
+
+
+.training-name{
+    padding-bottom: 12px;
+    margin:0;
+}
+
+.img-treino{
+    object-fit: cover;
+    width: 100%;
+    border-radius: 50%;
+    height: 48px;
+    min-width: 48px;
+    width: 48px;
+    border: 1px solid var(--secondary-hover);
+}
+
+.accordion{
+    width:100%;
+    gap:10px;
+    padding: 10px;
+}
+
+.accordion-details{
+    width:100%;
+    background: #f3efef;
+    display: flex;
+    flex-direction: column;
+}
+
+.fields-exercises{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+
+input {
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+}
+
+input:focus{
+    outline:none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.top-card{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.treino-options{
+    display: flex;
+    flex-direction: column;
+    width:120px;
+    position:absolute;
+}
+
+.treino-options button{
+    height: 24px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    border-radius: 12px; 
+    transition: color 1s, border 1s;
+}
+
+.menu-icon{
+    color: #212529;
+    height: 32px;
+    gap: 4px;
+    cursor: pointer;
+    display: flex;
+    padding: 0 80px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    align-items: center;
+    text-decoration: none;  
+    font-size: 20px;
+}
+
+/*ACCORDION*/
+.accordion-exercises{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+}
+
+.name-exercise{
+    width: 95%;
+    gap: 20px;
+    background:#e8e8e8;
+}
+
+.delete-exercise{
+    font-size: 16px;
+}
+
+.carga-exercicio, .repeticao-exercicio{
+    background: #e8e8e8;
+}
+
+.mais-repeticao {
+    border: 2px solid currentColor;
+    border-radius: 7px;
+    color: #212529;
+    font-size: 20px;
+    overflow: hidden;
+    padding: 0 2rem;
+    position: relative;
+    text-decoration: none;
+    transition: 0.2s transform ease-in-out;
+    will-change: transform;
+    z-index: 0;
+    height: 5vh;
+}
+
+.mais-repeticao::after {
+    background-color: #82c8f7;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: 0.2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+}
+
+.mais-repeticao:hover::after {
+    transform: translate(0, 0);
+}
+
+.mais-repeticao:hover {
+    border: 2px solid transparent;
+    color: white;
+    transform: scale(1.05);
+    will-change: transform;
+    cursor: pointer;
+}
+/*POP UP NOVO TREINO*/
+
+.training-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona um fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.form{
+    width: 350px; /* Ajuste conforme necessário */
+    padding: 20px;
+    background-color: #212529;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+    color: #F8F9FA;
+    height: fit-content;
+    
+}
+
+.new-training-form{
+    width: 350px; /* Ajuste conforme necessário */
+    padding: 20px;
+    background-color: #212529;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+    color: #F8F9FA;
+    height: fit-content;
+    position: relative;
+}
+
+
+.top-form{
+    display: flex;
+    margin-bottom: 15px;
+}
+.cancel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form input:focus {
+    outline: none;
+}
+
+
+.training-popup button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6C757D;
+    color: #F8F9FA;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sparkle {
+    
+    color: #000000; 
+    width: 99%;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+   border: none;
+   background: transparent;
+  }
+  
+  .sparkle:hover {
+    cursor: pointer;
+  }
+  
+  .u-hover--sparkle {
+    box-sizing: border-box;
+    position: relative;
+    padding: 0.75em;
+  }
+  
+  .u-hover--sparkle::before,
+  .u-hover--sparkle::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform-origin: center;
+  }
+  
+  .u-hover--sparkle::before {
+    border-top: 0.15em solid #212529; 
+    border-bottom: 0.15em solid #212529; 
+    transform: scale3d(0, 1, 1);
+    padding: 10px;
+    border-radius: 7px;
+  }
+  
+  .u-hover--sparkle::after {
+    border-left: 0.15em solid #212529; 
+    border-right: 0.15em solid #212529; 
+    transform: scale3d(1, 0, 1);
+    border-radius: 7px;
+  }
+  
+  .u-hover--sparkle:hover::before,
+  .u-hover--sparkle:hover::after {
+    transform: scale3d(1, 1, 1);
+    transition: transform 600ms; 
+  }
+
+.action-buttons{
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+}
+
+
+/*-------------botões de iniciar e finalizar treino -----------*/
+
+.bottom-actions button{
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid #82c8f7;
+    color: black;
+    background-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    border-radius: 10px;
+    position: relative;
+    transition: color 1s, border 1s;
+}
+  
+.bottom-actions button:hover{
+    color: #000000;
+    background: #82c8f7;
+  }

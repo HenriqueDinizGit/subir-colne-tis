@@ -1,0 +1,53 @@
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona um fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal-content {
+    position: relative;
+    width: 350px; /* Ajuste conforme necessário */
+    padding: 20px;
+    background-color: #212529;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+    color: #F8F9FA;
+}
+
+.modal-buttons{
+    display: flex;
+    gap:32px;
+}
+
+.modal-buttons button{
+    align-items: center;
+    width: 250px;
+    height: 60px;
+    cursor: pointer;
+    border: 1px solid white;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    border-radius: 10px;
+    position: relative;
+    transition: color 1s, border 1s;
+}
+  
+.confirm-share:hover{
+    color: rgb(251,255,0);
+    border: 1px solid rgb(251, 255, 0);
+  }
+
+.cancel-share:hover{
+    color: rgb(255, 71, 71);
+    border: 1px solid rgb(255, 71, 71);
+}

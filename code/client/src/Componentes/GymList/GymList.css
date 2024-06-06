@@ -1,0 +1,51 @@
+.list-header{
+    display: flex;
+    margin: 2rem 0;
+    justify-content: space-between;
+}
+
+.list-header h2{
+    color: #212529;
+}
+
+.list-container{
+    display: flex;
+    flex-direction: column;
+    gap:35px;
+}
+
+.list{
+    display: flex;
+    padding-right: 10px;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s ease-in-out;
+}
+
+.teacher-detail{
+    display: flex;
+    align-items: center;
+    gap:40px;
+    color:#212529;
+    
+}
+
+.teacher-detail p{
+    color: #212529;
+    font-weight: 10000;
+}
+
+.teacher-detail img{
+    width:50px;
+    background: #F8F9FA;
+    border-radius: 50%;
+}
+
+.list:hover{
+    background: #212529;
+    border-radius: 10px;
+}
+
+.list:hover .teacher-detail p{
+    color: #F8F9FA;
+}

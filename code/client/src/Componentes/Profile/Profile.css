@@ -1,0 +1,154 @@
+*{
+    font-family: sans-serif;
+}
+.profile{
+    flex:1;
+    width:20vw;
+}
+
+.profile-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit, .cancel{
+    background: #212529;
+    padding:12px;
+    color:#F8F9FA;
+    border-radius:10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel:hover, .edit:hover{
+    cursor:pointer;
+    transform: scale(1.05)
+}
+
+.edit .icon{
+    font-size: 20px;
+    transition: 0.5 ease-in-out;
+}
+
+.user-profile{
+    height: 85%;
+    margin-top: 2rem;
+    background: #dde6ed;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-detail{
+    width:100%;
+    height: 250px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-detail img{
+    border-radius: 50%;
+    width:150px;
+}
+
+.username{
+    color:#212529;
+}
+
+.user-courses{
+    background: #fff;
+    flex:1;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.course{
+    background: #dde6ed;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding-left: 3rem;
+    height: 100%;
+    color: #212529;
+}
+
+.course-detail{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-profile{
+    height: 70%;
+}
+
+/* Profile.css */
+.form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona um fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.form {
+    position: relative;
+    width: 350px; /* Ajuste conforme necessário */
+    padding: 20px;
+    background-color: #212529;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+    color: #F8F9FA;
+    
+}
+
+.top-form{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.cancel {
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form input:focus {
+    outline: none;
+}
+
+
+.form-popup button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6C757D;
+    color: #F8F9FA;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}

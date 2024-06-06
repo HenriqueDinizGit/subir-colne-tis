@@ -1,0 +1,35 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .primary-text{
+    width: 850px;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .second-text{
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: rgb(165,165,165);
+    text-transform: uppercase;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-in {
+    animation: slideIn 2s ease forwards;
+  }

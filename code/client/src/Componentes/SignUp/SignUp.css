@@ -1,0 +1,87 @@
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+    transition: transform 0.6s ease-in-out; /* Adicionamos a transição */
+  }
+  
+  .sign-up-container.right-panel-active {
+    opacity: 1; /* Adicionamos a opacidade para torná-lo visível */
+  }
+  
+  form {
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 50px;
+      height: 100%;
+      text-align: center;
+  }
+  
+  .criarcontah1 {
+      font-weight: bold;
+      margin: 0;
+  }
+  
+  .spancadastro {
+      font-size: 12px;
+  }
+  
+  input {
+      background-color: #eee;
+      border: none;
+      padding: 12px 15px;
+      margin: 8px 0;
+      width: 100%;
+  }
+  
+  input:focus {
+      outline: none;
+  }
+
+  .btncadastro {
+      border-radius: 20px;
+      border: 1px solid #6c757d;
+      background-color: #6d757d;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 12px 45px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+      cursor:pointer;
+  }
+  
+  .btncadastro:active {
+      transform: scale(0.95);
+  }
+  
+  .btncadastro:focus {
+      outline: none;
+  }
+  
+  .form-container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      transition: all 0.6s ease-in-out;
+  }
+  
+  .social-container {
+      margin: 20px 0;
+  }
+  
+  .social-container a {
+      border: 1px solid #dddddd;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+      height: 40px;
+      width: 40px;
+  }

@@ -1,0 +1,127 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model usuario {
+  id    Int     @id @default(autoincrement())
+  email String  @unique 
+  nome  String
+  senha String
+  foto  String @default("")
+  treinos treino[]
+  treinosRecebidos       treinoCompartilhado[] @relation("Recebimentos")
+  treinosEnviados        treinoCompartilhado[] @relation("Envios")
+  comunidadesMembro     Comunidade[] @relation("MembrosDaComunidade")
+  comunidadesAdministradas Comunidade[] // Relação para comunidades que o usuário administra
+  treinosRealizados treinoRealizado[]
+  @@index(fields: [email])
+}
+
+model treino {
+  id Int @id @default(autoincrement())
+  nome String
+  grupoMuscular String
+  usuarioId Int 
+  usuario usuario @relation(fields: [usuarioId], references: [id] , onDelete: Cascade)
+  imagemBanner String @default("")
+  exercicios exercicio[]
+  treinosRealizados treinoRealizado[]
+  compartilhados treinoCompartilhado[]
+  treinosCriadosCompartilhamento treinoCompartilhado[] @relation("treinosCriadosPeloCompartilhamento")
+  isOriginal Boolean @default(true)
+  treinoOriginalId Int? //Id do treino original, caso seja uma cópia
+  createdAt DateTime @default(now())
+}
+
+
+model exercicio{
+  id Int @id @default(autoincrement())
+  nome String
+  treinoId Int 
+  serieExercicio serieExercicio[]
+  treino treino @relation(fields: [treinoId], references: [id], onDelete: Cascade)
+}
+
+model serieExercicio{
+  id Int @id @default(autoincrement())
+  repeticoes Int
+  peso Int
+  exercicioId Int 
+  exercicio exercicio @relation(fields: [exercicioId], references: [id], onDelete: Cascade)
+}
+
+model treinoCompartilhado {
+  id                   Int      @id @default(autoincrement())
+  treinoCompartilhadoId             Int //Id do treino que está sendo compartilhado
+  treinoCompartilhado               treino   @relation(fields: [treinoCompartilhadoId], references: [id], onDelete: Cascade)
+  enviadoPorId         Int
+  enviadoPor           usuario  @relation("Envios", fields: [enviadoPorId], references: [id], onDelete: Cascade)
+  usuariosRecebidos    usuario[]  @relation("Recebimentos")
+  treinosCriadosPeloCompartilhamento treino[] @relation("treinosCriadosPeloCompartilhamento")
+  isEditable Boolean @default(false)
+  createdAt            DateTime @default(now())
+  tokenCompartilhamento String   @unique
+
+
+  @@index(fields: [treinoCompartilhadoId])
+}
+model treinoRealizado {
+  id               Int      @id @default(autoincrement())
+  idUsuario        Int      // Campo para armazenar o ID do usuário
+  usuario          usuario  @relation(fields: [idUsuario], references: [id], onDelete: Cascade)
+  descricao        String?
+  foto             String?
+  treino_iniciado  DateTime @default(now())
+  treino_finalizado DateTime @updatedAt 
+  treinoId         Int 
+  treino           treino @relation(fields: [treinoId], references: [id], onDelete: Cascade)
+}
+
+model Comunidade {
+  id        Int      @id @default(autoincrement())
+  adminId   Int      // ID do usuário que é o administrador da comunidade
+  admin     usuario  @relation(fields: [adminId], references: [id], onDelete: Cascade) // Relação com o usuário que é o administrador
+  membros   usuario[] @relation("MembrosDaComunidade") // Relação N:M para os membros da comunidade
+  qntMembros Int      @default(1) // Quantidade de membros pode ser gerenciada pela aplicação ou atualizada por triggers no banco de dados
+  token     String    @unique  // Token para acesso a comunidade
+  createdAt DateTime @default(now())
+  dataDeInicio DateTime 
+  dataDeFim DateTime
+  isPublic  Boolean  @default(true) // Comunidade pública ou privada
+  password  String? // Senha para comunidades privadas
+  nome     String
+  descricao String?
+  
+  @@index(fields: [adminId])
+
+}
+
+
+enum grupoMuscular {
+  Peito
+  Costas
+  Perna
+  Ombro
+  Abdomem
+  Biceps
+  Triceps
+  Panturrilha
+}
+
+enum diaSemana {
+  Segunda_feira
+  Terca_feira
+  Quarta_feira
+  Quinta_feira
+  Sexta_feira
+  Sabado
+  Domingo
+}

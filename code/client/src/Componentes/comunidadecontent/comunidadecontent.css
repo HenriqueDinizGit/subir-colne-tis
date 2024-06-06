@@ -1,0 +1,10 @@
+
+.content_community{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.no-comunity{
+    margin-right: 20rem;
+}

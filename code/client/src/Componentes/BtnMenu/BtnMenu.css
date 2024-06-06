@@ -1,0 +1,40 @@
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap:20px;
+  }
+
+  
+  .buttons button{
+    width: 250px;
+    height: 60px;
+    cursor: pointer;
+    border: 1px solid white;
+    color: white;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    border-radius: 20px;
+    position: relative;
+    transition: color 1s, border 1s;
+  }
+  
+  .buttons button:hover{
+    color: rgb(251,255,0);
+    border: rgb(251,255,0);
+  }
+  
+  
+  .buttons button:before{
+    border-radius: 20px;
+    width: 0;
+    height: 60px;
+    background-color: rgb(61,61,61);
+    transition: 1s;
+  }
+  
+  .buttons button:hover:before{
+    width: 100%;
+    border-radius: 20px;
+  }
