@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -22,7 +19,7 @@ model usuario {
   comunidadesMembro     Comunidade[] @relation("MembrosDaComunidade")
   comunidadesAdministradas Comunidade[] // Relação para comunidades que o usuário administra
   treinosRealizados treinoRealizado[]
-  @@index(fields: [email])
+  @@index([email])
 }
 
 model treino {
@@ -30,19 +27,18 @@ model treino {
   nome String
   grupoMuscular String
   usuarioId Int 
-  usuario usuario @relation(fields: [usuarioId], references: [id] , onDelete: Cascade)
+  usuario usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
   imagemBanner String @default("")
   exercicios exercicio[]
   treinosRealizados treinoRealizado[]
   compartilhados treinoCompartilhado[]
   treinosCriadosCompartilhamento treinoCompartilhado[] @relation("treinosCriadosPeloCompartilhamento")
   isOriginal Boolean @default(true)
-  treinoOriginalId Int? //Id do treino original, caso seja uma cópia
+  treinoOriginalId Int? // Id do treino original, caso seja uma cópia
   createdAt DateTime @default(now())
 }
 
-
-model exercicio{
+model exercicio {
   id Int @id @default(autoincrement())
   nome String
   treinoId Int 
@@ -50,7 +46,7 @@ model exercicio{
   treino treino @relation(fields: [treinoId], references: [id], onDelete: Cascade)
 }
 
-model serieExercicio{
+model serieExercicio {
   id Int @id @default(autoincrement())
   repeticoes Int
   peso Int
@@ -60,19 +56,19 @@ model serieExercicio{
 
 model treinoCompartilhado {
   id                   Int      @id @default(autoincrement())
-  treinoCompartilhadoId             Int //Id do treino que está sendo compartilhado
-  treinoCompartilhado               treino   @relation(fields: [treinoCompartilhadoId], references: [id], onDelete: Cascade)
+  treinoCompartilhadoId Int // Id do treino que está sendo compartilhado
+  treinoCompartilhado treino @relation(fields: [treinoCompartilhadoId], references: [id], onDelete: Cascade)
   enviadoPorId         Int
-  enviadoPor           usuario  @relation("Envios", fields: [enviadoPorId], references: [id], onDelete: Cascade)
-  usuariosRecebidos    usuario[]  @relation("Recebimentos")
+  enviadoPor           usuario @relation("Envios", fields: [enviadoPorId], references: [id], onDelete: Cascade)
+  usuariosRecebidos    usuario[] @relation("Recebimentos")
   treinosCriadosPeloCompartilhamento treino[] @relation("treinosCriadosPeloCompartilhamento")
   isEditable Boolean @default(false)
   createdAt            DateTime @default(now())
   tokenCompartilhamento String   @unique
 
-
-  @@index(fields: [treinoCompartilhadoId])
+  @@index([treinoCompartilhadoId])
 }
+
 model treinoRealizado {
   id               Int      @id @default(autoincrement())
   idUsuario        Int      // Campo para armazenar o ID do usuário
@@ -100,10 +96,8 @@ model Comunidade {
   nome     String
   descricao String?
   
-  @@index(fields: [adminId])
-
+  @@index([adminId])
 }
-
 
 enum grupoMuscular {
   Peito
